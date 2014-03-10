@@ -10,7 +10,7 @@ public class grafixMask {
 		initializeMap(map);
 /*
  * "0 292 307 399"
- * "48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"}
+ * "48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"
  */
 		Point tlPoint1 = new Point(192, 48);
 		Point rbPoint1 = new Point(207, 351);
@@ -74,29 +74,24 @@ public class grafixMask {
 		return result;
 	}
 
-	// public static int doFill(int x, int y) {
-	// // Check to ensure that we are within the bounds of the grid, if not,
-	// // return 0
-	// if (x < 0 || x >= 600)
-	// return 0;
-	// // Similar check for y
-	// if (y < 0 || y >= 400)
-	// return 0;
-	// // Check that we haven't already visited this position, as we don't want
-	// // to count it twice
-	// if (map[x][y] == true)
-	// return 0;
-	//
-	// // Record that we have visited this node
-	// map[x][y] = true;
-	//
-	// // Now we know that we have at least one empty square, then we will
-	// // recursively attempt to
-	// // visit every node adjacent to this node, and add those results
-	// // together to return.
-	// return 1 + doFill(x - 1, y) + doFill(x + 1, y) + doFill(x, y + 1) +
-	// doFill(x, y - 1);
-	// }
+// Using Recursion cause stact overflow problem
+/*	 public static int doFill(int x, int y) {
+	 // Check to ensure that we are within the bounds of the grid, if not, return 0
+	 if (x < 0 || x >= 600) return 0;
+	 // Similar check for y
+	 if (y < 0 || y >= 400) return 0;
+	 // Check that we haven't already visited this position, as we don't want to count it twice
+	 if (map[x][y] == true) return 0;
+	
+	 // Record that we have visited this node
+	 map[x][y] = true;
+	
+	 // Now we know that we have at least one empty square, then we will
+	 // recursively attempt to
+	 // visit every node adjacent to this node, and add those results
+	 // together to return.
+	 return 1 + doFill(x - 1, y) + doFill(x + 1, y) + doFill(x, y + 1) + doFill(x, y - 1);
+	 }*/
 
 	public static int doFill(int x, int y) {
 		int result = 0;
@@ -109,27 +104,21 @@ public class grafixMask {
 			Point top = s.peek();
 			s.pop();
 
-			// Check to ensure that we are within the bounds of the grid, if
-			// not, continue
-			if (top.getX() < 0 || top.getX() >= 600)
-				continue;
+			// Check to ensure that we are within the bounds of the grid, if not, continue
+			if (top.getX() < 0 || top.getX() >= 600) continue;
 			// Similar check for y
-			if (top.getY() < 0 || top.getY() >= 400)
-				continue;
-			// Check that we haven't already visited this position, as we don't
-			// want to count it twice
-			if (map[top.getX()][top.getY()])
-				continue;
+			if (top.getY() < 0 || top.getY() >= 400) continue;
+			// Check that we haven't already visited this position, as we don't want to count it twice
+			if (map[top.getX()][top.getY()]) continue;
 
-			map[top.getX()][top.getY()] = true; // Record that we have visited
-												// this node
+			// Record that we have visited this node
+			map[top.getX()][top.getY()] = true; 
 
-			// We have found this node to be empty, and part
-			// of this connected area, so add 1 to the result
+			// We have found this node to be empty, and part of this connected area, 
+			// so add 1 to the result
 			result++;
 
-			// Now we know that we have at least one empty square, then we will
-			// attempt to
+			// Now we know that we have at least one empty square, then we will attempt to
 			// visit every node adjacent to this node.
 			s.push(new Point(top.getX() + 1, top.getY()));
 			s.push(new Point(top.getX() - 1, top.getY()));
@@ -140,5 +129,4 @@ public class grafixMask {
 		System.out.println("dofill result = " + result);
 		return result;
 	}
-
 }
