@@ -1,4 +1,4 @@
-package Source;
+package src;
 
 public class Rectangle {
 	

@@ -1,13 +1,13 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Source.Point;
-import Source.Rectangle;
-import Source.grafixMask;
+import src.Point;
+import src.Rectangle;
+import src.grafixMask;
 
 public class grafixMaskTest {
 	

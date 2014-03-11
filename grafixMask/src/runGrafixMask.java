@@ -1,4 +1,4 @@
-package Source;
+package src;
 
 public class runGrafixMask {
 	public static void main(String[] args){
