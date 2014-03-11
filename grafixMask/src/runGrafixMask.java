@@ -4,30 +4,17 @@ public class runGrafixMask {
 	public static void main(String[] args){
 		grafixMask tmp = new grafixMask();
 		tmp.initializeMap();
-		
-//		Point tlPoint1 = new Point(192, 48);
-//		Point rbPoint1 = new Point(207, 351);
-//		Point tlPoint2 = new Point(392, 48);
-//		Point rbPoint2 = new Point(407, 351);
-//		Point tlPoint3 = new Point(52, 120);
-//		Point rbPoint3 = new Point(547, 135);
-//		Point tlPoint4 = new Point(52, 260);
-//		Point rbPoint4 = new Point(547, 275);
-//		Rectangle r1 = new Rectangle(tlPoint1, rbPoint1);
-//		Rectangle r2 = new Rectangle(tlPoint2, rbPoint2);
-//		Rectangle r3 = new Rectangle(tlPoint3, rbPoint3);
-//		Rectangle r4 = new Rectangle(tlPoint4, rbPoint4);
-//		Rectangle[] listRectangles = { r1,r2,r3,r4 };
-		
-		Point tlPoint1 = new Point(292, 0);
-		Point rbPoint1 = new Point(307, 399);
-		Rectangle r1 = new Rectangle(tlPoint1, rbPoint1);
-		Rectangle[] listRectangles = { r1 };
-
-		tmp.setRectangles(listRectangles);
-		int[] result = tmp.sortedAreas();
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]);
+		String[] ss = {"48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"};
+		String[] sd = {"0 292 399 307"};
+		grafixMask tmp2 = new grafixMask();
+		Rectangle a = tmp2.convertStringToRectangle(sd[0]);
+		System.out.println(a.getTLPoint().getX());
+		System.out.println(a.getTLPoint().getY());
+		System.out.println(a.getRBPoint().getX());
+		System.out.println(a.getRBPoint().getY());
+		int[] temp = tmp2.sortedAreas(ss);
+		for (int i = 0; i < temp.length; i++) {
+			System.out.println(temp[i]);
 		}
 	}
 }
