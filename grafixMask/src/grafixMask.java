@@ -39,28 +39,6 @@ public class grafixMask {
 		}
 	}
 	
-/*
-	public int[] sortedAreas() {
-		ArrayList<Integer> areas = new ArrayList<Integer>();
-		for (int i = 0; i < map.length; i++) {
-			for (int j = 0; j < map[0].length; j++) {
-				if (map[i][j] == false){
-					System.out.println("i: "+i+" j: "+j);
-					areas.add(doFill(i, j));
-				}
-			}
-		}
-
-		int[] result = new int[areas.size()];
-		System.out.println("areas quantity = " + areas.size());
-		for (int i = 0; i < areas.size(); i++) {
-			result[i] = areas.get(i);
-		}
-		java.util.Arrays.sort(result);
-		return result;
-	}
-*/
-	
 	public int[] sortedAreas(String[] s) {
 		Rectangle[] listRectangles = new Rectangle[s.length];
 		
@@ -96,22 +74,32 @@ public class grafixMask {
 		Rectangle rec = new Rectangle(a,b);
 		int spaceCount = 0;
 		int beginIndex = 0;
+		int coordinate = 0;
 		
 		for(int i=0;i<s.length();i++){
-			if(s.charAt(i)==' '&&spaceCount<3){
-				if(spaceCount==0)
-					a.setY(Integer.parseInt(s.substring(beginIndex, i)));
+			if(s.charAt(i)==' ' && spaceCount<3){
+				coordinate = Integer.parseInt(s.substring(beginIndex, i));
 				
-				if(spaceCount==1)
-					a.setX(Integer.parseInt(s.substring(beginIndex, i)));
-				
-				if(spaceCount==2)
-					b.setY(Integer.parseInt(s.substring(beginIndex, i)));
+				switch (spaceCount) {
+					case 0: 
+						a.setY(coordinate);
+						break;
+					
+					case 1: 
+						a.setX(coordinate);
+						break;
+					
+					case 2: 
+						b.setY(coordinate);
+						break;
+				}
 				
 				beginIndex = i+1;
 				
-				if(spaceCount==2)
-					b.setX(Integer.parseInt(s.substring(beginIndex,s.length())));
+				if(spaceCount==2){
+					coordinate = Integer.parseInt(s.substring(beginIndex,s.length()));
+					b.setX(coordinate);
+				}
 				
 				spaceCount++;
 			}
@@ -160,16 +148,20 @@ public class grafixMask {
 	}
 
 /*
-	//Using Recursion cause stact overflow problem
+	//Using Recursion cause stack overflow problem
   	public static int doFill(int x, int y) {
 		// Check to ensure that we are within the bounds of the grid, if not, return 0
 		if (x < 0 || x >= 600) return 0;
+		
 		// Similar check for y
 		if (y < 0 || y >= 400) return 0;
+		
 		// Check that we haven't already visited this position, as we don't want to count it twice
 		if (map[x][y] == true) return 0;
+		
 		// Record that we have visited this node
 		map[x][y] = true;
+		
 		// Now we know that we have at least one empty square, then we will recursively attempt to
 		// visit every node adjacent to this node, and add those results together to return.
 		return 1 + doFill(x - 1, y) + doFill(x + 1, y) + doFill(x, y + 1) + doFill(x, y - 1);
