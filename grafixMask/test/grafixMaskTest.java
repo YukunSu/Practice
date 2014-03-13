@@ -12,7 +12,7 @@ public class grafixMaskTest {
 	public void test1() {
 		String[] testString1 = {"0 292 399 307"};
 		int[] actual = grafixMask.sortedAreas(testString1);
-		int[] expected = {116800,116800};
+		int[] expected = {116800, 116800};
 		assertArrayEquals(expected, actual);
 	}
 	
@@ -20,7 +20,7 @@ public class grafixMaskTest {
 	public void test2() {
 		String[] testString2 = {"48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"};
 		int[] actual = grafixMask.sortedAreas(testString2);
-		int[] expected = {22816,192608};
+		int[] expected = {22816, 192608};
 		assertArrayEquals(expected, actual);
 	}
 	
@@ -28,7 +28,7 @@ public class grafixMaskTest {
 	public void test3(){
 		String[] testString3 = {"0 192 399 207", "0 392 399 407", "120 0 135 599", "260 0 275 599"};
 		int[] actual = grafixMask.sortedAreas(testString3);
-		int[] expected = {22080,22816,22816,23040,23040,23808,23808,23808,23808};
+		int[] expected = {22080, 22816, 22816, 23040, 23040, 23808, 23808, 23808, 23808};
 		assertArrayEquals(expected, actual);
 	}
 	

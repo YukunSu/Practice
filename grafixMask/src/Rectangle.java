@@ -5,6 +5,11 @@ public class Rectangle {
 	private Point topLeft = new Point(0,0);
 	private Point rightBottom = new Point(0,0);
 	
+	public Rectangle(){
+		this.topLeft = new Point(0,0);
+		this.rightBottom = new Point(0,0);
+	}
+	
 	public Rectangle (Point topLeft, Point rightBottom){
 		this.topLeft = topLeft;
 		this.rightBottom = rightBottom;

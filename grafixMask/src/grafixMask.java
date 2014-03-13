@@ -8,15 +8,31 @@ public class grafixMask {
 	public int y = 400;
 	public boolean[][] map = new boolean[x][y];
 	
-	public void setX(int x){
+	public void setMapX(int x){
 		this.x = x;
 	}
 
-	public void setY(int y){
+	public void setMapY(int y){
 		this.y = y;
 	}
+
+	public int getMapX(){
+		return map.length;
+	}
+
+	public int getMapY(){
+		return map[0].length;
+	}
 	
-	public void resetMap(){
+	public boolean[][] getMap(){
+		return map;
+	}
+	
+	public void setMap(){
+		map = new boolean[this.x][this.y];
+	}
+	
+	public void setMap(int x, int y){
 		map = new boolean[x][y];
 	}
 	
@@ -72,36 +88,43 @@ public class grafixMask {
 		Point a = new Point(0,0);
 		Point b = new Point(0,0);
 		Rectangle rec = new Rectangle(a,b);
-		int spaceCount = 0;
-		int beginIndex = 0;
+		int count = 0;
 		int coordinate = 0;
+		String result = "";
+		boolean digit = true;
 		
 		for(int i=0;i<s.length();i++){
-			if(s.charAt(i)==' ' && spaceCount<3){
-				coordinate = Integer.parseInt(s.substring(beginIndex, i));
-				
-				switch (spaceCount) {
-					case 0: 
-						a.setY(coordinate);
-						break;
-					
-					case 1: 
-						a.setX(coordinate);
-						break;
-					
-					case 2: 
-						b.setY(coordinate);
-						break;
+			if(count < 4){
+				if(Character.isDigit(s.charAt(i))){
+					result += s.charAt(i);
+					digit = true;
 				}
 				
-				beginIndex = i+1;
-				
-				if(spaceCount==2){
-					coordinate = Integer.parseInt(s.substring(beginIndex,s.length()));
-					b.setX(coordinate);
+				if(!Character.isDigit(s.charAt(i))||(count==3 && i == s.length()-1 && Character.isDigit(s.charAt(i)))){
+					if(digit){
+						coordinate = Integer.parseInt(result);
+						switch (count) {
+							case 0: 
+								a.setY(coordinate);
+								break;
+							
+							case 1: 
+								a.setX(coordinate);
+								break;
+							
+							case 2: 
+								b.setY(coordinate);
+								break;
+								
+							case 3:
+								b.setX(coordinate);
+								break;
+						}
+						count++;						
+					}
+					result = "";
+					digit = false;
 				}
-				
-				spaceCount++;
 			}
 		}
 		
@@ -123,9 +146,9 @@ public class grafixMask {
 			s.pop();
 
 			// Check to ensure that we are within the bounds of the grid, if not, continue
-			if (top.getX() < 0 || top.getX() >= 600) continue;
+			if (top.getX() < 0 || top.getX() >= map.length) continue;
 			// Similar check for y
-			if (top.getY() < 0 || top.getY() >= 400) continue;
+			if (top.getY() < 0 || top.getY() >= map[0].length) continue;
 			// Check that we haven't already visited this position, as we don't want to count it twice
 			if (map[top.getX()][top.getY()]) continue;
 
@@ -159,7 +182,7 @@ public class grafixMask {
 		// Check that we haven't already visited this position, as we don't want to count it twice
 		if (map[x][y] == true) return 0;
 		
-		// Record that we have visited this node
+		// Record that we have visited this node)
 		map[x][y] = true;
 		
 		// Now we know that we have at least one empty square, then we will recursively attempt to
