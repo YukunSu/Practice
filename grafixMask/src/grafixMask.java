@@ -93,6 +93,7 @@ public class grafixMask {
 		String result = "";
 		boolean digit = true;
 		
+		//All these can be replaced by String.split("\\s") (slight difference);
 		for(int i=0;i<s.length();i++){
 			if(count < 4){
 				if(Character.isDigit(s.charAt(i))){
