@@ -36,7 +36,7 @@ public class Rectangle {
 	}
 	
 	public int getPerimeter(){
-		return 2*(getLength()+getWidth());
+		return (getLength()+getWidth())<<1;
 	}
 	
 	public int getLength(){

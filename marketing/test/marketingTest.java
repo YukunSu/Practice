@@ -35,8 +35,8 @@ public class marketingTest {
 	@Test
 	public void test4() {
 		String[] compete = {"","","","","","","","","","",
-				 			"","","","","","","","","","",
-				 			"","","","","","","","","",""}; 
+							"","","","","","","","","","",
+							"","","","","","","","","",""}; 
 		long actual = marketing.howMany(compete);
 		long expected = 1073741824;
 		assertEquals(expected, actual);
