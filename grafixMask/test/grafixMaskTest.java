@@ -37,7 +37,10 @@
  * 
  * Constraints
  * Rectangles contains between 1 and 50 elements, inclusive
- * Each element of rectangles has the form "ROW COL ROW COL", where: "ROW" is a placeholder for a non-zero-padded integer between 0 and 399, inclusive; "COL" is a placeholder for a non-zero-padded integer between 0 and 599, inclusive; the first row number is no greater than the second row number; the first column number is no greater than the second column number
+ * Each element of rectangles has the form "ROW COL ROW COL", where: "ROW" is a placeholder
+ * for a non-zero-padded integer between 0 and 399, inclusive; "COL" is a placeholder for a
+ * non-zero-padded integer between 0 and 599, inclusive; the first row number is no greater than
+ * the second row number; the first column number is no greater than the second column number
  */
 package test;
 

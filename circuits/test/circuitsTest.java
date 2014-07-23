@@ -40,8 +40,10 @@
  * Each integer in each element of connects must be between 0 and the size of connects-1 inclusive
  * Each integer in each element of costs must be between 1 and 1000 inclusive
  * Each element of connects may not contain repeated integers
- * Each element of connects must be a single space delimited list of integers, each of which has no extra leading zeros. There will be no leading or trailing whitespace.
- * Each element of costs must be a single space delimited list of integers, each of which has no extra leading zeros. There will be no leading or trailing whitespace.
+ * Each element of connects must be a single space delimited list of integers, each of which has no
+ * extra leading zeros. There will be no leading or trailing whitespace.
+ * Each element of costs must be a single space delimited list of integers, each of which has no extra
+ * leading zeros. There will be no leading or trailing whitespace.
  * The circuit may not contain any cycles
  */
 package test;
