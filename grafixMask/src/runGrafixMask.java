@@ -1,8 +1,8 @@
 package src;
 
-public class runGrafixMask {
+public class RunGrafixMask {
     public static void main(String[] args){
-        grafixMask tmp = new grafixMask();
+        GrafixMask tmp = new GrafixMask();
         String[] ss = {"48 192 351 207", "48 392 351 407", "120 52 135 547", "260 52 275 547"};
         int[] temp = tmp.sortedAreas(ss);
         for (int i = 0; i < temp.length; i++) 

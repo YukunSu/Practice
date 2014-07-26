@@ -1,6 +1,6 @@
 package src;
 
-public class marketing {
+public class Marketing {
     private boolean[][] matrix;
     private int[] AdultsOrTeenager;
     private boolean oddNumberofNodes;

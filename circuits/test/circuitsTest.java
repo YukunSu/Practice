@@ -50,11 +50,11 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import src.circuits;
+import src.Circuits;
 
-public class circuitsTest {
+public class CircuitsTest {
 
-    public circuits circuits = new circuits();
+    public Circuits circuits = new Circuits();
 
     @Test
     public void test1() {

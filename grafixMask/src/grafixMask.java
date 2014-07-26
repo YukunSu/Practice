@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class grafixMask {
+public class GrafixMask {
     public int x = 600;
     public int y = 400;
     public boolean[][] map = new boolean[x][y];

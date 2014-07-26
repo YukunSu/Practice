@@ -1,6 +1,6 @@
 package src;
 
-public class circuits {
+public class Circuits {
     private int maxCostForAllNodes;
     private int maxCostForOneNode;
     private int[][] nodesMap;

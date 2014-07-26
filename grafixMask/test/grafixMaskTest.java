@@ -48,11 +48,11 @@ import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
 
-import src.grafixMask;
+import src.GrafixMask;
 
-public class grafixMaskTest {
+public class GrafixMaskTest {
 
-    public grafixMask grafixMask = new grafixMask();
+    public GrafixMask grafixMask = new GrafixMask();
 
     @Test
     public void test1() {

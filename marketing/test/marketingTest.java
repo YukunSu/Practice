@@ -49,11 +49,11 @@ package test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import src.marketing;
+import src.Marketing;
 
-public class marketingTest {
+public class MarketingTest {
 
-    public marketing marketing = new marketing();
+    public Marketing marketing = new Marketing();
 
     @Test
     public void test1() {
