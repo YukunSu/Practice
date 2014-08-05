@@ -22,10 +22,34 @@ public class Anagrams {
         }
     }
 
-    private void addToAnagramsList(String word) {
-        anagrams.add(word);
+    /**
+     * Remove identical strings in the list and return it.
+     * @param InputAnagrams
+     * @return
+     */
+    public ArrayList<String> removeIdenticalStrings(ArrayList<String> inputAnagrams) {
+        ArrayList<String> uniqueAnagrams = new ArrayList<String>();
+
+        for (int i = 0; i < inputAnagrams.size(); i++) {
+            if (!isExist(inputAnagrams.get(i), uniqueAnagrams)) {
+                uniqueAnagrams.add(inputAnagrams.get(i));
+            }
+        }
+        return uniqueAnagrams;
+    }
+    
+    public int sizeOfUniqueAnagrams(String s) {
+        return 0;
+    }
+
+    private boolean isExist(String word, ArrayList<String> anagramList) {
+        for (int i = 0; i < anagramList.size(); i++) {
+            if (word.equals(anagramList.get(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // verify size
-    // verify identical strings
 }

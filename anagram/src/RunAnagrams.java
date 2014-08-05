@@ -4,44 +4,33 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RunAnagrams {
-
-
-    public static void printDashes(int howMany) {
-        for (int i = 0; i < howMany; i++) {
-            System.out.print("-");
-        }
-    }
-
-    /**
-     * size check
-     * identical string check
-     * @param args
-     */
     public static void main(String[] args) {
-        System.out.println("Welcome to Anagram Maker ...");
-        System.out.println("\t... a program which uses recursion to list "
-                + "the anagrams of a word.\n");
-
+        System.out.println("---=== Anagram Maker ===---");
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a word > ");
-        String word = scanner.next();
+        System.out.print("Please enter a word: ");
+        String input = scanner.next();
         scanner.close();
 
-        System.out.println("The anagrams of " + word + " are:");
-        System.out.print("----------------");
-        printDashes(word.length());
-        System.out.println("-----");
-        Anagrams a = new Anagrams();
-        a.findAllAnagrams("", word);
-        ArrayList<String> anagrams = a.getAnagrams();
+        String displayMessage = "\nThe anagrams of " + input + " are:";
+        System.out.println(displayMessage);
+        printDashes(displayMessage.length());
+
+        Anagrams anagramWord = new Anagrams();
+        anagramWord.findAllAnagrams("", input);
+        ArrayList<String> uniqueAnagramsList = anagramWord.removeIdenticalStrings(anagramWord.getAnagrams());
+        printAnagrams(uniqueAnagramsList);
+    }
+
+    public static void printAnagrams(ArrayList<String> anagrams) {
         for (int i = 0; i < anagrams.size(); i++) {
             System.out.print(anagrams.get(i)+" ");
         }
-        System.out
-                .println("\n\nThanks for using \"Anagram Maker\" -- where words "
-                        + "come to life.\n\n");
-
     }
 
+    public static void printDashes(int length) {
+        for (int i = 0; i < length; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
