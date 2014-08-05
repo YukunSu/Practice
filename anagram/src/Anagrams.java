@@ -42,7 +42,7 @@ public class Anagrams {
         return 0;
     }
 
-    private boolean isExist(String word, ArrayList<String> anagramList) {
+    public boolean isExist(String word, ArrayList<String> anagramList) {
         for (int i = 0; i < anagramList.size(); i++) {
             if (word.equals(anagramList.get(i))) {
                 return true;
